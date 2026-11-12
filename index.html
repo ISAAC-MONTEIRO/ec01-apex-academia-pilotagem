@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Apex · Academia de Pilotagem</title>
+  <meta name="description" content="Cadastro, grid e boletim dos alunos da Apex Academia de Pilotagem.">
+  <meta name="theme-color" content="#07070A">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2307070A'/%3E%3Cpath d='M6 24 L14 8 H19 L11 24 Z' fill='%23E10600'/%3E%3Cpath d='M15 24 L23 8 H26 L18 24 Z' fill='%23fff'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Titillium+Web:ital,wght@0,300;0,400;0,600;0,700;0,900;1,700;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip" href="#grid">Pular para o grid de alunos</a>
+  <div class="progress" aria-hidden="true"></div>
+
+  <!-- ===================== NAV ===================== -->
+  <header class="nav" id="nav">
+    <a class="nav__brand" href="#topo" aria-label="Apex Academia de Pilotagem, início">
+      <svg class="nav__logo" viewBox="0 0 40 24" aria-hidden="true"><path d="M2 22 L12 2 H19 L9 22 Z"/><path class="w" d="M15 22 L25 2 H29 L19 22 Z"/><path class="w" d="M23 22 L33 2 H36 L26 22 Z"/></svg>
+      <span>Apex<small>Academia de Pilotagem</small></span>
+    </a>
+    <nav class="nav__links" aria-label="Principal">
+      <a href="#grid">Grid</a>
+      <a href="#boletim">Boletim</a>
+      <a href="#cursos">Cursos</a>
+    </nav>
+    <button class="btn btn--sm" type="button" data-action="novo-aluno"><span>Inscrever aluno</span></button>
+  </header>
+
+  <main>
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="topo" aria-labelledby="hero-title">
+      <div class="hero__photo" data-foto="hero" aria-hidden="true"></div>
+      <span class="hero__ring" aria-hidden="true"></span>
+      <svg class="hero__speed" viewBox="0 0 1200 400" preserveAspectRatio="none" aria-hidden="true">
+        <g stroke="currentColor" stroke-width="1">
+          <path d="M-20 120 H1220"/><path d="M-20 170 H1220"/><path d="M-20 290 H1220"/><path d="M-20 330 H1220"/>
+        </g>
+      </svg>
+
+      <div class="wrap hero__body">
+        <div class="hero__top">
+          <p class="eyebrow"><b>Temporada</b> 2026_ <span class="eyebrow__sep">/</span> Sistema de gestão de alunos</p>
+          <div class="lights" id="lights" role="img" aria-label="Luzes de largada">
+            <span class="lights__col"><i></i><i></i></span>
+            <span class="lights__col"><i></i><i></i></span>
+            <span class="lights__col"><i></i><i></i></span>
+            <span class="lights__col"><i></i><i></i></span>
+            <span class="lights__col"><i></i><i></i></span>
+          </div>
+        </div>
+
+        <h1 class="kinetic" id="hero-title" data-split>Largada</h1>
+
+        <div class="hero__foot">
+          <div class="hero__copy">
+            <p class="lead">Inscreva, acompanhe e classifique os alunos da academia. <span class="lead__strong">Nota 7 garante a vaga no grid.</span></p>
+            <p class="actions">
+              <button class="btn" type="button" data-action="novo-aluno"><span>Inscrever aluno <i aria-hidden="true">→</i></span></button>
+              <a class="btn btn--ghost" href="#grid"><span>Ver o grid <i aria-hidden="true">↓</i></span></a>
+            </p>
+          </div>
+
+          <svg class="car" viewBox="0 0 640 180" role="img" aria-label="Ilustração de um carro de Fórmula 1 em linhas">
+            <g class="car__lines" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round">
+              <path pathLength="1" d="M22 34 H96 V46 H40 V104 H22 Z"/>
+              <path pathLength="1" d="M40 60 H92"/>
+              <path pathLength="1" d="M40 104 L72 96 L168 92 L214 64 L240 48 L272 46 L284 64 L312 70 L352 66 L372 78 L440 86 L540 98 L596 108 L600 118 L540 120 L420 118 L176 120 L66 120 L40 112 Z"/>
+              <path pathLength="1" d="M176 106 C220 96 300 94 372 96 L432 100"/>
+              <path pathLength="1" d="M300 70 C306 50 334 44 352 52 L368 76"/>
+              <path pathLength="1" d="M520 130 H630 V137 H520 Z"/>
+              <path pathLength="1" d="M616 106 V137"/>
+              <path pathLength="1" d="M84 132 H500"/>
+            </g>
+            <path class="car__livery" pathLength="1" d="M168 102 L372 86 L548 106" fill="none" stroke-width="3"/>
+            <circle class="car__helmet" cx="327" cy="61" r="8"/>
+            <g class="car__wheel">
+              <circle cx="132" cy="122" r="40" class="tyre"/>
+              <circle cx="132" cy="122" r="27" class="tyre__band"/>
+              <circle cx="132" cy="122" r="7" class="tyre__hub"/>
+            </g>
+            <g class="car__wheel">
+              <circle cx="478" cy="124" r="36" class="tyre"/>
+              <circle cx="478" cy="124" r="24" class="tyre__band"/>
+              <circle cx="478" cy="124" r="6" class="tyre__hub"/>
+            </g>
+            <text class="car__num" x="250" y="112">07</text>
+          </svg>
+        </div>
+      </div>
+
+      <div class="ticker" aria-label="Avisos da academia">
+        <div class="ticker__track">
+          <span>Inscrições do grid abertas</span><span>Nota mínima para aprovação: 7,0</span><span>Três cursos, três compostos</span><span>Dados guardados apenas nesta sessão</span>
+          <span aria-hidden="true">Inscrições do grid abertas</span><span aria-hidden="true">Nota mínima para aprovação: 7,0</span><span aria-hidden="true">Três cursos, três compostos</span><span aria-hidden="true">Dados guardados apenas nesta sessão</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== GRID (CRUD) ===================== -->
+    <section class="section section--surface" id="grid" aria-labelledby="grid-title">
+      <div class="grid-photo" data-foto="grid" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="section__head">
+          <header class="claim claim--side">
+            <p class="eyebrow"><b>Grid</b> de alunos_</p>
+            <h2 class="h2" id="grid-title">Quem está na pista. <span class="light">Cada nota é uma volta registrada.</span></h2>
+          </header>
+          <dl class="telemetry" aria-label="Resumo do grid">
+            <div><dt>alunos no grid</dt><dd data-stat="total">0</dd></div>
+            <div><dt>aprovados</dt><dd data-stat="aprovados">0</dd></div>
+            <div><dt>nota média</dt><dd data-stat="media">–</dd></div>
+          </dl>
+        </div>
+
+        <div class="toolbar">
+          <button class="btn" type="button" data-action="novo-aluno"><span>Inscrever aluno <i aria-hidden="true">+</i></span></button>
+          <button class="btn btn--ghost" type="button" id="btn-demo"><span>Carregar dados ilustrativos</span></button>
+          <p class="toolbar__note">Os registros ficam só nesta sessão e somem ao recarregar a página.</p>
+        </div>
+
+        <div class="tower" id="tower">
+          <table class="tower__table">
+            <caption class="sr">Alunos cadastrados</caption>
+            <thead>
+              <tr>
+                <th scope="col">Nº</th>
+                <th scope="col">Aluno</th>
+                <th scope="col">Idade</th>
+                <th scope="col">Curso</th>
+                <th scope="col">Nota final</th>
+                <th scope="col">Situação</th>
+                <th scope="col"><span class="sr">Ações</span></th>
+              </tr>
+            </thead>
+            <tbody id="tabela-alunos"></tbody>
+          </table>
+
+          <div class="empty" id="empty">
+            <svg class="empty__flag" viewBox="0 0 120 80" aria-hidden="true">
+              <defs>
+                <pattern id="chk" width="20" height="20" patternUnits="userSpaceOnUse"><rect width="10" height="10" fill="currentColor"/><rect x="10" y="10" width="10" height="10" fill="currentColor"/></pattern>
+              </defs>
+              <path d="M10 6 V78" stroke="currentColor" stroke-width="2"/>
+              <path class="empty__cloth" d="M12 8 C40 0 60 18 112 8 V52 C60 62 40 44 12 52 Z" fill="url(#chk)" stroke="currentColor"/>
+            </svg>
+            <p class="h3">Grid vazio.</p>
+            <p class="empty__text">Nenhum aluno inscrito ainda. Inscreva o primeiro ou carregue os dados ilustrativos para ver o sistema em ação.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== BOLETIM (RELATÓRIOS) ===================== -->
+    <section class="section section--paper" id="boletim" aria-labelledby="boletim-title">
+      <div class="wrap">
+        <div class="section__head section__head--paper">
+          <header class="claim">
+            <p class="eyebrow"><b>Boletim</b> oficial_</p>
+            <h2 class="h2" id="boletim-title">Os números da temporada, <span class="light">recalculados a cada mudança no grid.</span></h2>
+          </header>
+          <div class="filters" role="group" aria-label="Escolher relatório">
+            <button type="button" class="filter is-active" data-relatorio="todos" aria-pressed="true">Todos</button>
+            <button type="button" class="filter" data-relatorio="aprovados" aria-pressed="false">Aprovados</button>
+            <button type="button" class="filter" data-relatorio="medias" aria-pressed="false">Médias</button>
+            <button type="button" class="filter" data-relatorio="alfabetica" aria-pressed="false">Ordem alfabética</button>
+            <button type="button" class="filter" data-relatorio="cursos" aria-pressed="false">Por curso</button>
+          </div>
+        </div>
+
+        <div class="reports" id="reports">
+          <article class="report report--wide" data-grupo="aprovados">
+            <header class="report__head">
+              <p class="report__kicker">Nota ≥ 7,0</p>
+              <h3 class="report__title">Alunos aprovados</h3>
+              <p class="report__count" data-rel="aprovados-count">0</p>
+            </header>
+            <ol class="podium" data-rel="aprovados"></ol>
+          </article>
+
+          <article class="report report--block" data-grupo="medias">
+            <header class="report__head">
+              <p class="report__kicker">Todas as notas</p>
+              <h3 class="report__title">Média das notas finais</h3>
+            </header>
+            <p class="report__big" data-rel="media-notas">–</p>
+            <div class="gauge" aria-hidden="true"><span class="gauge__fill" data-rel="media-notas-bar"></span><span class="gauge__cut"></span></div>
+            <p class="report__foot">Linha de corte em 7,0</p>
+          </article>
+
+          <article class="report" data-grupo="medias">
+            <header class="report__head">
+              <p class="report__kicker">Todas as idades</p>
+              <h3 class="report__title">Média das idades</h3>
+            </header>
+            <p class="report__big" data-rel="media-idades">–</p>
+            <p class="report__foot" data-rel="faixa-idades">Sem alunos no grid</p>
+          </article>
+
+          <article class="report" data-grupo="alfabetica">
+            <header class="report__head">
+              <p class="report__kicker">De A a Z</p>
+              <h3 class="report__title">Nomes em ordem alfabética</h3>
+            </header>
+            <ol class="alpha" data-rel="alfabetica"></ol>
+          </article>
+
+          <article class="report report--wide" data-grupo="cursos">
+            <header class="report__head">
+              <p class="report__kicker">Por composto</p>
+              <h3 class="report__title">Quantidade de alunos por curso</h3>
+            </header>
+            <ul class="bars" data-rel="cursos"></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CURSOS ===================== -->
+    <section class="section section--dark" id="cursos" aria-labelledby="cursos-title">
+      <div class="cursos-photo" data-foto="cursos" aria-hidden="true"></div>
+      <div class="wrap cursos">
+        <div class="cursos__intro">
+          <header class="claim">
+            <p class="eyebrow"><b>Cursos</b> da academia_</p>
+            <h2 class="h2" id="cursos-title">Três cursos. <span class="light">Um composto de pneu para cada um.</span></h2>
+          </header>
+          <p class="lead">No grid, a cor do pneu ao lado do nome indica em que curso o aluno está.</p>
+          <svg class="circuit" viewBox="0 0 620 320" role="img" aria-label="Traçado de circuito ilustrativo com um carro dando voltas">
+            <path id="track" class="circuit__track" d="M70 210 C60 130 120 84 200 92 L330 112 C382 120 402 80 442 60 C502 30 566 62 566 122 C566 176 524 196 472 190 L362 178 C322 174 302 202 302 232 C302 274 262 294 202 288 L112 278 C80 272 72 244 70 210 Z"/>
+            <path class="circuit__kerb" d="M70 210 C60 130 120 84 200 92 L330 112 C382 120 402 80 442 60 C502 30 566 62 566 122 C566 176 524 196 472 190 L362 178 C322 174 302 202 302 232 C302 274 262 294 202 288 L112 278 C80 272 72 244 70 210 Z"/>
+            <path class="circuit__start" d="M62 200 H80"/>
+            <circle class="circuit__car" r="6">
+              <animateMotion dur="9s" repeatCount="indefinite" rotate="auto"><mpath href="#track"/></animateMotion>
+            </circle>
+            <text class="circuit__label" x="86" y="206">LARGADA</text>
+          </svg>
+        </div>
+
+        <div class="tyres" data-stagger>
+          <article class="tyre-card" style="--tyre: var(--soft)">
+            <span class="tyre-card__icon" aria-hidden="true"></span>
+            <p class="tyre-card__comp">Composto macio</p>
+            <h3 class="h3">Fórmula Base</h3>
+            <p>Pilotagem fundamental: traçado, frenagem, ponto de tangência e controle de tração.</p>
+          </article>
+          <article class="tyre-card" style="--tyre: var(--medium)">
+            <span class="tyre-card__icon" aria-hidden="true"></span>
+            <p class="tyre-card__comp">Composto médio</p>
+            <h3 class="h3">Telemetria e Engenharia</h3>
+            <p>Leitura de dados de pista, acerto do carro e conversa técnica com o engenheiro.</p>
+          </article>
+          <article class="tyre-card" style="--tyre: var(--hard)">
+            <span class="tyre-card__icon" aria-hidden="true"></span>
+            <p class="tyre-card__comp">Composto duro</p>
+            <h3 class="h3">Estratégia de Corrida</h3>
+            <p>Janela de pit stop, gestão de pneus e decisões sob bandeira amarela.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="foot" aria-label="Rodapé">
+    <div class="wrap">
+      <p class="foot__mark" aria-hidden="true">Apex</p>
+      <div class="foot__cols">
+        <div>
+          <h2 class="eyebrow">Projeto</h2>
+          <p>Estudo de caso EC01 · Gerenciamento de alunos. Trabalho acadêmico.</p>
+        </div>
+        <div>
+          <h2 class="eyebrow">Navegação</h2>
+          <ul role="list"><li><a class="link" href="#grid">Grid de alunos</a></li><li><a class="link" href="#boletim">Boletim</a></li><li><a class="link" href="#cursos">Cursos</a></li></ul>
+        </div>
+        <div>
+          <h2 class="eyebrow">Aviso</h2>
+          <p>Apex é uma academia fictícia. Nomes e notas da carga de demonstração são ilustrativos. Sem vínculo com a FIA, a Fórmula 1 ou equipes.</p>
+        </div>
+      </div>
+      <p class="foot__legal">© 2026 · Projeto acadêmico</p>
+    </div>
+  </footer>
+
+  <!-- ===================== POP-UP: CADASTRO / EDIÇÃO ===================== -->
+  <dialog class="modal" id="modal-aluno" aria-labelledby="modal-aluno-title">
+    <form class="modal__box" id="form-aluno" method="dialog" novalidate>
+      <header class="modal__head">
+        <div>
+          <p class="eyebrow" id="modal-aluno-kicker"><b>Inscrição</b> no grid_</p>
+          <h2 class="h3" id="modal-aluno-title">Novo aluno</h2>
+        </div>
+        <button class="modal__close" type="button" data-close aria-label="Fechar">×</button>
+      </header>
+
+      <div class="modal__body">
+        <div class="field">
+          <label for="nome">Nome</label>
+          <input id="nome" name="nome" type="text" autocomplete="off" maxlength="60" placeholder="Nome completo" required>
+          <p class="field__error" id="nome-erro" aria-live="polite"></p>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="idade">Idade</label>
+            <input id="idade" name="idade" type="number" inputmode="numeric" min="10" max="99" step="1" placeholder="Ex.: 19" required>
+            <p class="field__error" id="idade-erro" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label for="notaFinal">Nota final</label>
+            <input id="notaFinal" name="notaFinal" type="number" inputmode="decimal" min="0" max="10" step="0.1" placeholder="0 a 10" required>
+            <p class="field__error" id="notaFinal-erro" aria-live="polite"></p>
+          </div>
+        </div>
+        <div class="field">
+          <label for="curso">Curso</label>
+          <div class="select">
+            <select id="curso" name="curso" required>
+              <option value="" disabled selected>Selecione o curso</option>
+              <option value="Fórmula Base">Fórmula Base</option>
+              <option value="Telemetria e Engenharia">Telemetria e Engenharia</option>
+              <option value="Estratégia de Corrida">Estratégia de Corrida</option>
+            </select>
+          </div>
+          <p class="field__error" id="curso-erro" aria-live="polite"></p>
+        </div>
+        <p class="modal__hint" id="preview-situacao" aria-live="polite"></p>
+      </div>
+
+      <footer class="modal__foot">
+        <button class="btn btn--ghost" type="button" data-close><span>Cancelar</span></button>
+        <button class="btn" type="submit" id="btn-salvar"><span><b class="btn__label">Cadastrar</b> <i aria-hidden="true">→</i></span></button>
+      </footer>
+    </form>
+  </dialog>
+
+  <!-- ===================== POP-UP: CONFIRMAR EXCLUSÃO ===================== -->
+  <dialog class="modal modal--sm" id="modal-confirmar" aria-labelledby="confirmar-title">
+    <div class="modal__box">
+      <header class="modal__head">
+        <div>
+          <p class="eyebrow"><b>Bandeira</b> preta_</p>
+          <h2 class="h3" id="confirmar-title">Remover aluno do grid?</h2>
+        </div>
+        <button class="modal__close" type="button" data-close aria-label="Fechar">×</button>
+      </header>
+      <div class="modal__body">
+        <p id="confirmar-texto"></p>
+      </div>
+      <footer class="modal__foot">
+        <button class="btn btn--ghost" type="button" data-close><span>Cancelar</span></button>
+        <button class="btn btn--danger" type="button" id="btn-confirmar-exclusao"><span>Excluir</span></button>
+      </footer>
+    </div>
+  </dialog>
+
+  <div class="toasts" id="toasts" role="status" aria-live="polite"></div>
+
+  <script src="js/fotos.js"></script>
+  <script src="js/Aluno.js"></script>
+  <script src="js/relatorios.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "name": "EC_01 · ambiente de desenvolvimento",
+  "image": "mcr.microsoft.com/devcontainers/base:alpine",
+  "features": { "ghcr.io/devcontainers/features/node:1": { "version": "lts" } },
+  "forwardPorts": [8081],
+  "postStartCommand": "npx --yes http-server -p 8081 -c-1 .",
+  "customizations": { "vscode": { "extensions": ["ritwickdey.LiveServer"] } }
+}

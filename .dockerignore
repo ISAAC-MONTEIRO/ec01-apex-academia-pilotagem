@@ -1,0 +1,5 @@
+.git
+.devcontainer
+docker-compose.yml
+README.md
+*.log
