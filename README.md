@@ -102,6 +102,7 @@ no celular. Com `prefers-reduced-motion`, as animações são desligadas e a pá
 
 ## Créditos visuais
 
+Fotografias do Unsplash (Licença Unsplash); autores e links em `assets/img/README.md`.
 Ilustrações (carro, luzes de largada, circuito, bandeira) desenhadas em SVG para este projeto.
-Fontes Titillium Web e Barlow Condensed (Google Fonts, licença OFL). Nenhuma marca ou
-imagem oficial de FIA, Fórmula 1 ou equipes é usada.
+Fontes Titillium Web e Barlow Condensed (Google Fonts, licença OFL). Nenhum logotipo da FIA, da Fórmula 1 ou de equipes faz parte da identidade visual;
+as fotos de pista podem mostrar carros e patrocinadores reais, apenas como ambientação.

@@ -36,4 +36,4 @@ Testes automatizados em Chrome (headless, puppeteer-core) sobre a página real, 
 
 ## Pendências
 
-- Fotos: slots prontos em `js/fotos.js`, aguardando as imagens.
+- Nenhuma. Fotos do Unsplash ativas, com créditos em `assets/img/README.md`.

@@ -306,6 +306,11 @@ img, svg { display: block; max-width: 100%; }
 .ticker:hover .ticker__track { animation-play-state: paused; }
 @keyframes marquee { to { transform: translateX(-50%); } }
 
+/* com foto no hero, o carro em linhas sai de cena para não competir com o carro real */
+.hero.tem-foto .car { display: none; }
+.hero.tem-foto { background: radial-gradient(50% 65% at 82% 30%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 70%), var(--bg); }
+.hero.tem-foto .hero__photo.has-foto::after { background: linear-gradient(90deg, #07070AEB 0%, #07070AA6 50%, #07070A40 100%), linear-gradient(0deg, #07070A 0%, transparent 45%); }
+
 @media (max-width: 56rem) {
   .hero__foot { grid-template-columns: 1fr; }
   .car { max-width: 34rem; margin-right: 0; }

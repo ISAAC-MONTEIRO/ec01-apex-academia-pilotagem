@@ -6,7 +6,7 @@
  * Detalhes de formato e tamanho em assets/img/README.md.
  */
 const FOTOS = {
-  hero: null,   // carro de F1 em pista, de preferência noturna ou ao pôr do sol
-  grid: null,   // grid de largada / carros alinhados
-  cursos: null, // box, mecânicos ou paddock
+  hero: 'assets/img/hero.jpg',     // Clément Delacre / Unsplash
+  grid: 'assets/img/grid.jpg',     // Wyatt Simpson / Unsplash
+  cursos: 'assets/img/cursos.jpg', // Marc Kleen / Unsplash
 };

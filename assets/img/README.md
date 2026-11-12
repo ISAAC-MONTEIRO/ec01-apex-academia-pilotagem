@@ -14,4 +14,10 @@ com atribuição) e registre autor e link abaixo. Evite logotipos oficiais em de
 
 ## Créditos
 
-_(nenhuma foto adicionada ainda)_
+Todas sob a [Licença Unsplash](https://unsplash.com/license): uso gratuito, sem atribuição obrigatória (o crédito é dado por cortesia).
+
+| Arquivo | Autor | Página |
+|---|---|---|
+| `hero.jpg` | Clément Delacre | https://unsplash.com/photos/M5s9Ffs1KqU |
+| `grid.jpg` | Wyatt Simpson | https://unsplash.com/photos/gUtBDHvG_Pk |
+| `cursos.jpg` | Marc Kleen | https://unsplash.com/photos/fJjtt4kHews |
